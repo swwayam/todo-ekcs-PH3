@@ -1,0 +1,16 @@
+@if (todoItems.length > 0) {
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            @for (todoItem of todoItems; track $index) {
+            <li class="list-group-item">{{todoItem.todo}}<button class="btn mx-3 btn-danger"
+                    (click)="deleteElement(todoItem.id)">Delete</button></li>
+            }
+    
+        </ul>
+    </div>
+    }
+    
+    @if( todoItems.length <= 0){ <div class="alert card alert-warning" role="alert">
+        TODO Is Empty!!
+        </div>
+    }

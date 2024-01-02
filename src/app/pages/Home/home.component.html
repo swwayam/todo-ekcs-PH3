@@ -1,0 +1,41 @@
+<!-- Todo Form / Input  -->
+
+<!-- TODO -> To handel button click, create a function  -->
+<!-- TODO -> Use the function to take input from user  -->
+<!-- TODO -> Log the input to the console  -->
+<!-- TODO -> Handel Edge Case -->
+
+
+<form class="form">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">TODO</label>
+        <!-- #todoText is a refrence variable # denotes refrence -->
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #todoText>
+        <div id="emailHelp" class="form-text">We know you forget things, use this to remind yourself.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="getUserInput(todoText)">Submit</button>
+</form>
+
+
+<!-- Todo Output -->
+
+<!-- TODO -> We get the input form the user, put the input value in the array -->
+<!-- TODO -> Show the array data in UI -->
+
+@if (todoItems.length > 0) {
+<div class="card">
+    <ul class="list-group list-group-flush">
+        @for (todoItem of todoItems; track $index) {
+        <li class="list-group-item">{{todoItem.todo}}<button class="btn mx-3 btn-danger"
+                (click)="deleteElement(todoItem.id)">Delete</button></li>
+        }
+
+    </ul>
+</div>
+}
+
+@if( todoItems.length <= 0){ <div class="alert card alert-warning" role="alert">
+    TODO Is Empty!!
+    </div>
+}
